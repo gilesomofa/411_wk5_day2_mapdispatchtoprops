@@ -8,12 +8,12 @@ import {
     TableRow
 } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete'
-import Chart from './Chart'
-import Total from './Total'
+import Chart from '../containers/Chart'
+import Total from '../containers/Total'
 import AddCar from '../containers/AddCar'
-import { removeCar } from '../redux/actions'
  
 const Dashboard = (props) => {
+    console.log(props.cars)
     return (
         <Container maxWidth="lg" className="car-container">
             <h4>Welcome, {props.user.username}</h4>
@@ -46,7 +46,7 @@ const Dashboard = (props) => {
                         <TableCell>
                             <DeleteIcon
                                 // add onClick method here
-                                onClick = {props.removeCar.idx}
+                                onClick = { () => props.removeCar(car.id)}
                                 className="icon text-red" />
                         </TableCell>
                     </TableRow>
